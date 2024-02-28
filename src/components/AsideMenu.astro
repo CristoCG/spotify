@@ -1,9 +1,11 @@
 ---
-import LibraryIcon from "../icons/Library.astro";
-import HomeIcon from "../icons/Home.astro";
-import SearchIcon from "../icons/Search.astro";
+import LibraryIcon from "@/icons/Library.astro";
+import HomeIcon from "@/icons/Home.astro";
+import SearchIcon from "@/icons/Search.astro";
 
-import SideMenuItem from "../components/SideMenuItem.astro";
+import SideMenuItem from "@/components/SideMenuItem.astro";
+import SideMenuCard from "@/components/SideMenuCard.astro";
+import { playlists } from "@/lib/data";
 ---
 
 <!-- Barra de navegación -->
@@ -28,6 +30,9 @@ import SideMenuItem from "../components/SideMenuItem.astro";
         <LibraryIcon />
         Mi biblioteca
       </SideMenuItem>
+
+      <!-- Creamos un componente para el renderizado de los datos en playlist -->
+      {playlists.map((playlist) => <SideMenuCard playlist={playlist} />)}
     </ul>
   </div>
 </nav>
